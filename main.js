@@ -18,32 +18,6 @@ autoUpdater.logger.transports.file.level = 'info';
 log.info('App starting...');
 
 //-------------------------------------------------------------------
-// Define the menu
-//
-// THIS SECTION IS NOT REQUIRED
-//-------------------------------------------------------------------
-let template = []
-if (process.platform === 'darwin') {
-  // OS X
-  const name = app.getName();
-  template.unshift({
-    label: name,
-    submenu: [
-      {
-        label: 'About ' + name,
-        role: 'about'
-      },
-      {
-        label: 'Quit',
-        accelerator: 'Command+Q',
-        click() { app.quit(); }
-      },
-    ]
-  })
-}
-
-
-//-------------------------------------------------------------------
 // Open a window that displays the version
 //
 // THIS SECTION IS NOT REQUIRED
@@ -58,6 +32,7 @@ function sendStatusToWindow(text) {
   log.info(text);
   win.webContents.send('message', text);
 }
+
 function createDefaultWindow() {
   win = new BrowserWindow({
     width: 500, height: 150,
@@ -66,7 +41,7 @@ function createDefaultWindow() {
     }
   });
   
-  // win.webContents.openDevTools();
+  win.webContents.openDevTools();
 
   win.on('closed', () => {
     win = null;
@@ -105,9 +80,8 @@ autoUpdater.on('update-downloaded', (info) => {
 });
 
 app.on('ready', function() {
-  // Create the Menu
-  const menu = Menu.buildFromTemplate(template);
-  Menu.setApplicationMenu(menu);
+  // Disable menu
+  Menu.setApplicationMenu(null);
 
   createDefaultWindow();
 });
