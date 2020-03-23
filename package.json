@@ -5,6 +5,7 @@
   "description": "electron-updater example project",
   "author": "Kyle Allen Cueto",
   "scripts": {
+    "start": "electron .",
     "publish": "build -mwl -p always"
   },
   "devDependencies": {
