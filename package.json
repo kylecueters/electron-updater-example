@@ -1,12 +1,12 @@
 {
   "name": "electron-updater-example",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "main": "main.js",
   "description": "electron-updater example project",
   "author": "Kyle Allen Cueto",
   "scripts": {
     "start": "electron .",
-    "publish": "build -mwl -p always"
+    "deploy": "build -mwl -p always"
   },
   "devDependencies": {
     "electron": "^3.0.2",
