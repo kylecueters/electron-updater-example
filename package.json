@@ -3,7 +3,7 @@
   "version": "0.7.2",
   "main": "main.js",
   "description": "electron-updater example project",
-  "author": "Matt Haggard",
+  "author": "Kyle Allen Cueto",
   "scripts": {
     "publish": "build -mwl -p always"
   },
